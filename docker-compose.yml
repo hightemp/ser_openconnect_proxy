@@ -1,0 +1,15 @@
+version: '3'
+
+services:
+  vpn-container:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    privileged: true
+    # network_mode: "host"
+    ports:
+      - "8888:8888"
+    env_file:
+      - .env
+    restart:
+      unless-stopped
